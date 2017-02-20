@@ -1,0 +1,79 @@
+Evet güzel bir konu ile tekrar merhaba.</br>
+
+NDK konusu üzerinde ( eğer hosting için para bulabilir uzatabilirsem :) ) yoğunlaşmayı planlıyorum.</br>
+
+C ve C++ ile bir çok platform ve sistemler üzerinde yeterli tecrübem var bunun verdiği cesaretle Android platformunda da
+
+acemiliğimi atarken burada sorun ve çözümlerimi paylaşacağım.</br>
+
+ilk olarak NDK Android Studio'da kurulu mu?</br>
+
+&nbsp;
+
+Toolboxta<span style="color: #ff0000;"> Project Structure</span> ye tıklıyoruz.</br></br>
+
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-40-43-ekran-görüntüsü.png"><img class="alignnone wp-image-120" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-40-43-ekran-görüntüsü.png" alt="2016-08-29 17-40-43 ekran görüntüsü" width="657" height="103" /></a></br>
+
+&nbsp;
+</br>
+Görüldüğü üzere <span style="color: #ff0000;">Android NDK location</span> boş ve altında <span style="color: #0000ff;">Download</span> butonu var.</br>
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-39-11-ekran-görüntüsü.png"><img class="alignnone wp-image-117" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-39-11-ekran-görüntüsü.png" alt="2016-08-29 17-39-11 ekran görüntüsü" width="645" height="555" /></a></br>
+
+&nbsp;
+</br>
+<span style="color: #0000ff;">Download</span> a tıklarsak sadece <span style="color: #000000;"><strong>NDK</strong></span> kütüphanesi inecek ve bize <span style="text-decoration: underline;">LLDB 2.1</span> e ihtiyaç duyacağız tıkladığımızda aşağıdakiler karşımıza çıkacak.</br></br>
+
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-39-25-ekran-görüntüsü.png"><img class="alignnone wp-image-118" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-39-25-ekran-görüntüsü.png" alt="2016-08-29 17-39-25 ekran görüntüsü" width="439" height="375" /></a> <a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-39-33-ekran-görüntüsü.png"><img class="alignnone wp-image-119" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-39-33-ekran-görüntüsü.png" alt="2016-08-29 17-39-33 ekran görüntüsü" width="458" height="389" /></a>
+</br></br>
+<span style="color: #ff0000;">Accept</span> i seçip <span style="color: #ff0000;">Next</span> dediğimizde yandaki pencere gelir ve <strong>NDK</strong> iner kurulur. <span style="color: #ff0000;">Finish</span> dediğimizde <strong>NDK</strong> hazır.</br>
+
+&nbsp;
+</br>
+<hr />
+
+&nbsp;
+</br>
+<strong><span style="color: #000000;">Tam Anlamıyla NDK kurulumu</span> </strong>için aşağıdaki yolları izleyin.
+</br>
+&nbsp;
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-18-00-04-ekran-görüntüsü.png"><img class="alignnone wp-image-128" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-18-00-04-ekran-görüntüsü.png" alt="2016-08-29 18-00-04 ekran görüntüsü" width="707" height="113" /></a>
+
+Toolboxta <span style="color: #ff0000;">Settings</span> e tıklayın.
+</br>
+&nbsp;
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-41-21-ekran-görüntüsü.png"><img class="alignnone wp-image-129" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-41-21-ekran-görüntüsü.png" alt="2016-08-29 17-41-21 ekran görüntüsü" width="716" height="480" /></a>
+</br>
+<span style="color: #ff0000;">Apperance &amp; Behavior &gt; Android SDK</span> yı sağ taraftan seçin.
+</br>
+&nbsp;
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-41-41-ekran-görüntüsü.png"><img class="alignnone wp-image-131" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-41-41-ekran-görüntüsü.png" alt="2016-08-29 17-41-41 ekran görüntüsü" width="716" height="482" /></a>
+</br>
+<span style="color: #ff0000;">NDK</span> ve <span style="color: #ff0000;">LLDB</span> <span style="color: #ff0000;">2.1</span> seçin ve <span style="color: #ff0000;">Apply</span> deyin.
+</br>
+&nbsp;
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-41-53-ekran-görüntüsü.png"><img class="alignnone  wp-image-132" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-41-53-ekran-görüntüsü.png" alt="2016-08-29 17-41-53 ekran görüntüsü" width="711" height="415" /></a>
+</br>
+Bu uyarıya <span style="color: #ff0000;">OK</span> deyin.
+</br>
+&nbsp;
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-42-00-ekran-görüntüsü.png"><img class="alignnone  wp-image-133" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-42-00-ekran-görüntüsü.png" alt="2016-08-29 17-42-00 ekran görüntüsü" width="668" height="570" /></a>
+</br>
+<span style="color: #ff0000;">Accept</span> i seçin ve <span style="color: #ff0000;">Next</span> e tıklayın.
+</br>
+&nbsp;
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-42-04-ekran-görüntüsü.png"><img class="alignnone  wp-image-134" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-17-42-04-ekran-görüntüsü.png" alt="2016-08-29 17-42-04 ekran görüntüsü" width="668" height="572" /></a>
+</br>
+İndirip unzip yapmasını bekleyin ve <span style="color: #ff0000;">Finish</span> deyin tamamdır:)
+</br>
+&nbsp;
+</br>
+&nbsp;
+</br>
+&nbsp;

@@ -1,0 +1,151 @@
+Yeniden merhaba,</br>
+
+Android Studio yu kurduk NDK yı dahil ettik ardından yeni bir proje oluşturduk ve sıra geldi projede NDK deneyimine.</br>
+
+İlk olarak projemizin ana fonksiyonlarını barındıran <span style="color: #800080;">Main_Activity.java</span> dosyasını açıyoruz.</br>
+
+içeriğine şu kodları ekliyoruz;</br></br>
+
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-18-34-30-ekran-görüntüsü.png"><img class="alignnone wp-image-138" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-18-34-30-ekran-görüntüsü.png" alt="2016-08-30 18-34-30 ekran görüntüsü" width="825" height="525" /></a></br>
+
+Burada eklenen kodlar şu şekilde</br></br>
+
+&nbsp;
+
+<span style="color: #0000ff;">static</span> {
+
+System.loadLibrary("<span style="color: #008000;">deneme</span>");
+
+{
+
+<span style="color: #0000ff;">public native</span> String <span style="color: #ff0000;">dene</span>();
+
+&nbsp;</br></br>
+
+ifade edilmek istenen şu ki;</br>
+
+<span style="color: #008000;">deneme</span> adlı bir modülümüz olsun istiyoruz ve içinde <span style="color: #ff0000;">dene</span>() adlı bir fonksiyon olsun ve geriye String veri çevirsin
+
+bu kodlar sınıf tanımlamasının ardından sınıfın içine ilk yazılanlar şeklinde olmasında fayda var C dilini bilenler bunu anlayacaklar.</br>
+
+burada püf noktası şu amacımız tamamen otomatik kodların oluşmasını sağlayarak işimizi kolaylaştırmak yapmamız gerekenler ise şu;</br></br>
+
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-18-42-45-ekran-görüntüsü.png"><img class="alignnone wp-image-139" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-18-42-45-ekran-görüntüsü.png" alt="2016-08-30 18-42-45 ekran görüntüsü" width="910" height="449" /></a></br></br>
+
+Fonksiyonun ismini seçip beklediğimizde satır başında kırmızı lamba işareti belirecek ona tıkladığımızda da üstte görüldüğü gibi menü açılacak,</br>
+
+ve ilk seçeneğimiz "Inspection 'Missing JNI function' options" ama görmemiz gereken bu değil onun için aşağıdakileri yapıyoruz;</br>
+
+<span style="color: #800080;">gradle.properties ( Project Properties )</span> dosyasını Gradle Scripts altında buluyor açıyoruz,</br>
+
+muhtemelen içeriğinde bol bol açıklamalar göreceksiniz solgun yazılar halindedir silmenize gerek yok,</br>
+
+en alt satıra gelip sihirli sözcüğü yazıyoruz;</br>
+
+<span style="color: #339966;"><strong> <span style="color: #008000;">andoid.useDeprecatedJni=true</span></strong></span></br>
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-18-46-44-ekran-görüntüsü.png"><img class="alignnone wp-image-140" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-18-46-44-ekran-görüntüsü.png" alt="2016-08-30 18-46-44 ekran görüntüsü" width="1111" height="433" /></a>
+</br></br>
+&nbsp;
+
+<span style="color: #ff0000;">File &gt; Save All</span> diyor ve <span style="color: #ff0000;">Tools &gt; Android &gt; Sync Project with Gradle Files</span> diyoruz, bunu bir kaç defa yapalım ve tekrar <span style="color: #800080;">Main_Activity.java</span> dosyasına geliyoruz.</br></br>
+
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-18-53-48-ekran-görüntüsü-1.png"><img class="alignnone wp-image-147" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-18-53-48-ekran-görüntüsü-1.png" alt="2016-08-30 18-53-48 ekran görüntüsü" width="983" height="613" /></a></br></br>
+
+Resimde görüldüğü gibi fonksiyonun ismini seçip kırmızı lambaya bastığımızda açılan menüde ilk seçeneğin değiştiğini göreceğiz</br>
+
+Create function <span style="color: #000080;">Java_com_example_name_myapplication_mainactivity_dene</span> menüsünü göreceksiniz tıkladığınızda solda <span style="color: #ff0000;"><strong>jni</strong></span> klasörü oluşacak açalım</br>
+
+içinde <span style="color: #800080;">deneme.c</span> dosyası oluşmuş bu dosya görüldüğü gibi adını modül isminden almış oluyor derlendiğinde de <span style="color: #800080;">deneme.o</span> olarak çıktı verecek zaten.</br>
+
+<span style="color: #800080;">deneme.c</span> yi açınca göreceğiz ki sadece #include&lt;jni.h&gt; satırı olacak bu demektir ki henüz fonksiyonu oluşturmadık.</br></br>
+
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-00-39-ekran-görüntüsü.png"><img class="alignnone wp-image-142" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-00-39-ekran-görüntüsü.png" alt="2016-08-30 19-00-39 ekran görüntüsü" width="1040" height="423" /></a></br></br>
+
+&nbsp;
+
+tekrar <span style="color: #ff0000;">File &gt; Save All</span> diyor ve <span style="color: #ff0000;">Tools &gt; Android &gt; Sync Project with Gradle Files</span> diyoruz, bunu bir kaç defa yapalım ve tekrar <span style="color: #800080;">Main_Activity.java</span> dosyasına geliyoruz.</br>
+
+fonksiyonun ismini seçip kırmızı lambada çıkan menüden create function diyoruz, bu ilk yapışta modül dosyasını ikinci tekrarda ise fonksiyonu modül dosyasını oluşturduğu anlamına geliyor, ve fonksiyonumuz bu sefer <span style="color: #800080;">deneme.c</span> içinde oluşmuş olduğunu göreceğiz tıpkı aşağıdaki gibi.</br></br>
+
+&nbsp;
+
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-06-11-ekran-görüntüsü.png"><img class="alignnone wp-image-145" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-06-11-ekran-görüntüsü.png" alt="2016-08-30 19-06-11 ekran görüntüsü" width="1141" height="487" /></a></br></br>
+
+&nbsp;
+
+hazır :)</br> <span style="color: #ff0000;"><strong>returnValue</strong></span> yerine iki tırnak arasında <strong><span style="color: #008000;">"merhaba"</span></strong> yazıp derleyip çalıştıralım;
+
+bunu toolbox ta app butonuna basıp altında çıkan menüden app-native yi seçerek solunda bulunan butona basıyoruz.</br>
+</br>
+&nbsp;
+
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-15-18-ekran-görüntüsü.png"><img class="alignnone wp-image-150" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-15-18-ekran-görüntüsü.png" alt="2016-08-30 19-15-18 ekran görüntüsü" width="470" height="243" /></a></br></br>
+
+&nbsp;
+
+ama bir dakika ikonun üzerinde çarpı işareti var bakalım sorun neymiş, Edit Configurations... diyoruz.</br></br>
+
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-19-22-ekran-görüntüsü.png"><img class="alignnone wp-image-151" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-19-22-ekran-görüntüsü.png" alt="2016-08-30 19-19-22 ekran görüntüsü" width="749" height="487" /></a></br></br>
+
+Evet Altta görüldüğü gibi derleme tipinin JNI gözlemlemesi olmadığı yazıyor bunu şöyle çözüyoruz <span style="color: #ff0000;">OK</span> deyip kapatalım;</br>
+
+Gradle Scripts altında build.gradle (Module: app) dosyasını açıyoruz ve buildTypes {} içinde release {} nin altına şu kodları yapıştırıyoruz.</br>
+
+&nbsp;
+</br>
+debug {
+jniDebuggable <strong><span style="color: #000080;">true</span></strong>
+}
+</br></br>
+&nbsp;
+
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-27-42-ekran-görüntüsü.png"><img class="alignnone wp-image-152" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-27-42-ekran-görüntüsü.png" alt="2016-08-30 19-27-42 ekran görüntüsü" width="788" height="205" /></a>
+</br>
+&nbsp;
+</br>
+ardından <span style="color: #ff0000;">File &gt; Save All</span> ve <span style="color: #ff0000;">Sync Project with Gradle</span> diyoruz ve sorunumuz düzeliyor.
+</br></br>
+<img class="alignnone  wp-image-154" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-28-57-ekran-görüntüsü-300x164.png" alt="2016-08-30 19-28-57 ekran görüntüsü" width="785" height="429" />
+</br>
+&nbsp;
+</br>
+bu menüde <strong>app</strong> yi seçtiğimizde Java olarak derliyorduk <strong>app-native</strong> ile hem Java hemde NDK olarak Hybrid derleme imkanımız olacak ve artık bunu kullanacağız.
+</br>
+&nbsp;
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-35-20-ekran-görüntüsü.png"><img class="alignnone  wp-image-156" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-35-20-ekran-görüntüsü.png" alt="2016-08-30 19-35-20 ekran görüntüsü" width="378" height="96" />           </a><a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-35-24-ekran-görüntüsü.png"><img class="alignnone  wp-image-157" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-35-24-ekran-görüntüsü.png" alt="2016-08-30 19-35-24 ekran görüntüsü" width="398" height="97" /></a>
+</br>
+&nbsp;
+</br>
+app-native yi seçip sol taraftaki aşağı yeşil ok simgeli butona basarak derleyelim ve sağ taraftaki yeşil play tuşu ile emulatöre gönderelim.
+</br>
+&nbsp;
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-41-35-ekran-görüntüsü.png"><img class="alignnone  wp-image-158" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-41-35-ekran-görüntüsü.png" alt="2016-08-30 19-41-35 ekran görüntüsü" width="441" height="802" /></a>
+</br>
+Evet resimde de gördüğünüz gibi <span style="color: #ff0000;"><strong>Unfortunately, My Application has stopped.</strong> </span>uyarısı ile program açılmadan kapandı nedeni ise;
+</br>
+Android Studio nun modülün varlığından haberi olmadığı için gradle ye modülümüzü tanıtıyoruz, Gradle Script &gt; build.gradle yi açıyoruz.
+</br>
+Alttaki kodları defaultConfig {} in içinde versionName "1.0" ın altına yapıştırıyoruz
+</br>
+ndk {
+moduleName "deneme"
+}
+</br>
+&nbsp;
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-49-54-ekran-görüntüsü.png"><img class="alignnone  wp-image-159" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-49-54-ekran-görüntüsü.png" alt="2016-08-30 19-49-54 ekran görüntüsü" width="693" height="379" /></a>
+</br>
+&nbsp;
+</br>
+File &gt; Save All diyor Sync Project Gradle yapıyor ve derliyoruz, ardından Run diyor emulatöre şutluyoruz :)
+</br>
+&nbsp;
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-51-48-ekran-görüntüsü.png"><img class="alignnone  wp-image-160" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-19-51-48-ekran-görüntüsü.png" alt="2016-08-30 19-51-48 ekran görüntüsü" width="469" height="858" /></a>
+</br>
+Evet programımız sağ salim çalıştı hayırlı olsun :)
+</br>
+&nbsp;

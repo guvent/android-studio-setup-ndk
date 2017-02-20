@@ -1,0 +1,99 @@
+Merhaba
+</br>
+İlk deneyim gibi baştan kurulum yaparak not almaya çalışacağım kurulumda bir kaç önemli faktör var,
+</br>
+özellikle NDK (Native C++) kullanacaksak kurulumu baştan yapmak en iyisi.
+</br>
+Benim kullandığım işletim sistemi Ubuntu 16 Linux, windows'a göre daha sorunsuz ve güvenli geliyor bana zaten android studio hemen hemen windows ile aynı çalışıyor sorun olacağını düşünmüyorum.
+</br>
+Öncelikle <a href="https://developer.android.com">Android Studio'u</a> indirelim.
+</br></br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-14-32-57-ekran-görüntüsü.png"><img class="alignnone wp-image-65" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-14-32-57-ekran-görüntüsü.png" alt="2016-08-29 14-32-57 ekran görüntüsü" width="663" height="325" /></a>
+</br>
+&nbsp;
+</br>
+<span style="color: #0000ff;">android-studio-ide-XXX.XXXXXXX-linux.zip</span> şeklinde zip olarak bize ulaşacak,
+</br>
+içindeki "android-studio" klasörünü <strong>"/home/&lt;user&gt;/android/"</strong> klasörüne çıkartıyoruz.
+</br>
+64 Bit işletim sisteminde;
+</br>
+<span class="pln">lib32z1, lib32ncurses5, lib32bz2</span><span class="pun">-</span><span class="lit">1.0,</span><span class="pln"> lib32stdc</span><span class="pun">++</span><span class="lit">6  son sürüm olarak,</span>
+</br>
+gerekebilir varsa silip tekrar kurmakta fayda var android studio çalışırsa hiç dokunmayın.
+</br>
+Android Studio'nun ana dizininde uygulama klasörüne gelin <strong>"/home/&lt;user&gt;/android/android-studio/bin"</strong>
+</br>
+ve uçbirim açarak (sağ tık uçbirim aç) şu komutla android studio çalıştır "./studio.h"
+</br>
+Eğer "JDK Not Found","JAVA Development Kit Not Found","JDK old please update" gibi JDK yok hatası alırsanız
+</br>
+UBUNTU İÇİN terminali açıyoruz:
+</br></br>
+öncelikle eski sürüm javaları kaldırıyoruz aşağıdakileri terminale yapıştırın.
+</br>
+"sudo apt-get remove oracle-jdk7-installer"
+</br>
+"sudo apt-get remove oracle-java7-installer"
+</br>
+"sudo apt-get remove openjdk-8-jdk"
+</br>
+"sudo apt-get remove openjdk-7-jdk"
+</br></br>
+ve en son sürüm Oracle JDK 8 yüklüyoruz.
+</br>
+<span style="font-size: 16px;">"sudo apt-get install oracle-jdk8-installer"</span>
+</br>
+kurulum bitince alternatif seçimini yapıyoruz
+</br>
+"sudo update-alternatives --config java"
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-41-18-ekran-görüntüsü.png"><img class="alignnone wp-image-76" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-41-18-ekran-görüntüsü.png" alt="2016-08-29 15-41-18 ekran görüntüsü" width="483" height="314" /></a>
+</br>
+ve JDK hazır.
+</br>
+&nbsp;
+</br>
+<span style="font-size: 16px;">Programı çalıştırıyoruz "./studio.sh", açılan pencerede ;</span>
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-03-01-ekran-görüntüsü.png"><img class="alignnone wp-image-67" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-03-01-ekran-görüntüsü.png" alt="2016-08-29 15-03-01 ekran görüntüsü" width="495" height="183" /></a>
+</br>
+resimdeki gibi işaretlenmiş olacak ve <span style="color: #ff0000;">OK</span> deyip devam ediyoruz.
+</br>
+Karşımıza kurulum sihirbazı çıkacak
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-06-24-ekran-görüntüsü.png"><img class="alignnone wp-image-68" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-06-24-ekran-görüntüsü.png" alt="2016-08-29 15-06-24 ekran görüntüsü" width="504" height="376" /></a>
+</br>
+&nbsp;
+</br>
+<span style="color: #ff0000;">Next</span> diyor ve sonraki adımda <span style="color: #ff0000;">"Standart Kurulum"</span> seçili şekilde <span style="color: #ff0000;">Next</span> diyor devam ediyoruz.
+</br>
+Aşağıdaki manzara eğer "/home/&lt;user&gt;/android/Sdk" diye bir klasör yoksa yani "Android Sdk" yüklü değil ise karşımıza çıkacak
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-12-51-ekran-görüntüsü.png"><img class="alignnone wp-image-69" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-12-51-ekran-görüntüsü.png" alt="2016-08-29 15-12-51 ekran görüntüsü" width="534" height="399" /></a>
+</br>
+<span style="color: #ff0000;">Next</span> diyor ve bir sonraki yani son adıma geçerek <span style="color: #ff0000;">Finish</span> diyoruz ve "Android Sdk" indirme işlemi başlıyor.
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-15-18-ekran-görüntüsü.png"><img class="alignnone wp-image-70" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-15-18-ekran-görüntüsü.png" alt="2016-08-29 15-15-18 ekran görüntüsü" width="535" height="403" /></a>
+</br>
+&nbsp;
+</br>
+indirme işlemi bitince tekrar <span style="color: #ff0000;">Finish</span> diyoruz ve kurulum bitiyor.
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-19-24-ekran-görüntüsü.png"><img class="alignnone wp-image-71" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-19-24-ekran-görüntüsü.png" alt="2016-08-29 15-19-24 ekran görüntüsü" width="533" height="373" /></a>
+</br>
+Eğer böyle bir hata alırsanız da sol altta gördüğünüz <span style="color: #ff0000;">Configure</span> ye tıklayarak
+</br>
+açılan menüden <span style="color: #ff0000;">Project Defaults</span> a tıklayıp <span style="color: #ff0000;">Project Structure</span> yi seçiyoruz
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-22-48-ekran-görüntüsü.png"><img class="alignnone wp-image-72" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-22-48-ekran-görüntüsü.png" alt="2016-08-29 15-22-48 ekran görüntüsü" width="524" height="381" /></a>
+</br>
+Açılan pencereden Sdk Klasörünü "/home/&lt;user&gt;/android/Sdk" seçiyoruz.
+</br>
+<a href="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-26-04-ekran-görüntüsü.png"><img class="alignnone wp-image-73" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-29-15-26-04-ekran-görüntüsü.png" alt="2016-08-29 15-26-04 ekran görüntüsü" width="518" height="440" /></a>
+</br>
+&nbsp;
+</br>
+OK diyoruz ve sorun çözülüyor. ve Kurulum Bitti:)
+</br>
+&nbsp;

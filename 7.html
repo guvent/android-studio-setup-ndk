@@ -1,0 +1,72 @@
+Merhaba;</br>
+
+Hatanın ayrıntıları,</br>
+
+Cannot launch AVD in emulator.</br>
+Output:</br>
+qemu: hardware error: Can't set isa irqs with no isa bus present.</br>
+emulator: WARNING: VM heap size set below hardware specified minimum of 256MB</br>
+emulator: WARNING: Setting VM heap size to 384MB</br>
+CPU #0:</br>
+EAX=00000000 EBX=00000000 ECX=00000000 EDX=00000663</br>
+ESI=00000000 EDI=00000000 EBP=00000000 ESP=0000000</br>
+
+Şeklinde uzayıp gidiyor bunu UBUNTU kullanıcıları terminale ./studio.sh diyerek çalıştırdıklarında karşılaşırlar ama şanslısınız</br>
+
+size hem masaüstüne kısayol oluşturmayı göstereceğim hemde sorunu çözeceğiz.</br>
+
+öncelikle sorunu komut satırında küçük bir ekleme ile çözelim;</br>
+
+<span style="color: #0000ff;"><strong>LC_ALL=C ./studio</strong></span>
+
+yazarak programı açalım, açıldıktan sonra programı Run diyerek emulatöre gönderelim ve sorunun çözüldüğüne şahit olalım.</br>
+
+çözdüysek sıra geldi masaüstüne kısayol oluşturmaya</br>
+
+öncelikle <strong><span style="color: #000000;">/home/guven/Android/android-studio/bin/ </span></strong><span style="color: #000000;">dizinine gelelim sağtık uçbirim aç diyelim ve açılan terminale şunu yazalım</span>
+
+<span style="color: #0000ff;"><strong>gedit studio2.sh</strong></span>
+
+gedit açılacak ve içine şunu yapıştıralım</br>
+
+&nbsp;</br>
+
+<span style="color: #800000;"><strong>#!/bin/sh</strong></span></br>
+<span style="color: #800000;"><strong>#</strong></span></br>
+<span style="color: #800000;"><strong># ---------------------------------------------------------------------</strong></span></br>
+<span style="color: #800000;"><strong># Android Studio startup script.</strong></span></br>
+<span style="color: #800000;"><strong># ---------------------------------------------------------------------</strong></span></br>
+<span style="color: #800000;"><strong>#</strong></span></br>
+
+<span style="color: #800000;"><strong>LC_ALL=C /home/&lt;USER&gt;/Android/android-studio/bin/studio.sh</strong></span></br>
+</br>
+
+
+kaydedip çıkalım ve terminale şunu yazalım</br>
+
+<strong><span style="color: #0000ff;">gedit studio.desktop</span></strong>
+
+tekrar gedit açılacak şunları yapıştıralım</br>
+
+&nbsp;
+</br>
+<strong><span style="color: #800000;">[Desktop Entry]</span></strong></br>
+<strong><span style="color: #800000;">Type=Application</span></strong></br>
+<strong><span style="color: #800000;">Name=Studio</span></strong></br>
+<strong><span style="color: #800000;">Exec='/home/&lt;USER&gt;/Android/android-studio/bin/studio2.sh'</span></strong></br>
+<strong><span style="color: #800000;">Icon=/home/&lt;USER&gt;/Android/android-studio/bin/studio.png</span></strong></br>
+<strong><span style="color: #800000;">Terminal=true</span></strong></br>
+
+&nbsp;</br>
+
+Not : &lt;USER&gt; yerine bilgisayarınızda kullanıcı adınızı yazıyorsunuz anladığınızı düşünüyorum tabi.</br>
+
+&nbsp;</br>
+
+kaydet dediğinizde ikonunuz hazır olacak masaüstüne taşıyabilirsiniz muhtemel "android-studio/bin/" klasörüne kaydedecektir.</br>
+
+<img class="alignnone  wp-image-165" src="file:///home/guven/Masaüstü/0/uploads/2016/08/2016-08-30-20-18-10-ekran-görüntüsü.png" alt="2016-08-30 20-18-10 ekran görüntüsü" width="502" height="311" />
+</br></br>
+Hayırlı olsun:)
+</br>
+&nbsp;
